@@ -1,0 +1,172 @@
+
+
+/* Screens Resolution : 992px
+-------------------------------------------------------------------------- */
+@media only screen and (max-width: 1200px) {
+	
+	/* ---------------------------------
+	6.	PROJECTS
+	--------------------------------- */
+	
+	/* PROJECTS STYLING */
+
+	.project .project-info{ left: -20px; }
+}
+
+/* Screens Resolution : 992px
+-------------------------------------------------------------------------- */
+@media only screen and (max-width: 992px) {
+	
+	/* ---------------------------------
+	1. PRIMARY STYLES
+	--------------------------------- */
+
+	h1{ font-size: 4em; }
+	h2{ font-size: 3em; }
+	h3{ font-size: 2em; }
+	
+	
+	/* ---------------------------------
+	6.	PROJECTS
+	--------------------------------- */
+	
+	/* PROJECT BUTTONS */
+
+	.projects .close-project-btn,
+	.projects .show-more-btn{ top: auto; bottom: 30px; }
+	
+}
+
+
+/* Screens Resolution : 767px
+-------------------------------------------------------------------------- */
+@media only screen and (max-width: 769px) {
+	
+	/* ---------------------------------
+	1. PRIMARY STYLES
+	--------------------------------- */
+
+	p{ line-height: 1.4; }
+
+	h1{ font-size: 3em; }
+	h2{ font-size: 2.5em; }
+	h3{ font-size: 1.8em; }
+	h4{ font-size: 1.5em; }
+	h5{ font-size: 1.2em; }
+
+	
+	/* ---------------------------------
+	2. COMMON SYLES
+	--------------------------------- */
+
+	.section{ margin-top: 100px; }
+	
+	
+	/* ---------------------------------
+	3. MENU STYLING
+	--------------------------------- */
+
+	header{ padding: 0 15px; }
+	
+	.main-menu ul.nav-menu { padding: 150px 100px; width: 100%; }
+	
+	.main-menu ul.nav-menu> li{ font-size: 1em; width: 100%; }
+	
+	.main-menu ul.nav-menu> li> a:after{ display: none; }
+	
+	
+	/* DROPDOWN */
+
+	.drop-down-menu{ position: static; width: 100%; }
+	
+	.main-menu ul.nav-menu li.drop-down .nv-icn{ margin-left: 5px; }
+	
+	.main-menu ul.nav-menu> li > .drop-down-menu.d-open{ padding: 10px; }
+
+	.drop-down-menu:after{ display: none; }
+	
+	
+	/* ---------------------------------
+	4. FIXED AREA
+	--------------------------------- */
+
+	.fixed-area{ left: 0px; }
+
+
+	/* ---------------------------------
+	5. SLIDER STYLING
+	--------------------------------- */
+	
+	/* SLIDER CONTENTS STYLING */
+
+	.slider-content .slider-writings-inner{ padding: 0 50px; }
+	
+	.slider-content .slider-writings .read-more-btn{ height: 40px; line-height: 40px; width: 150px; }
+	
+	
+	/* CAROUSEL INDICATORS */
+	
+	.carousel-indicators{ bottom: 25px; }
+	
+	.carousel-indicators >li.active,
+	.carousel-indicators > li{ height: 12px; width: 12px; margin: 0 4px; }
+	
+	.carousel-indicators > li:before{ right: -10px; }
+	
+	
+	/* CAROUSEL CONTROLS */
+
+	.slider-control{ bottom: 25px; right: 10px; width: 70px; }
+
+	
+	/* ---------------------------------
+	6.	PROJECTS
+	--------------------------------- */
+	
+	/* PROJECTS STYLING */
+
+	.projects .project{ width: 85%;  }
+
+	.project .project-info{ left: -10px; }
+
+	
+}
+
+/* Screens Resolution : 479px
+-------------------------------------------------------------------------- */
+@media only screen and (max-width: 479px) {
+
+	/* ---------------------------------
+	1. PRIMARY STYLES
+	--------------------------------- */
+
+	body{ font-size: 12px;  }
+	
+	
+	/* ---------------------------------
+	6.	PROJECTS
+	--------------------------------- */
+	
+	/* PROJECTS STYLING */
+
+	.project .project-info{ top: 0; }
+	
+	.project .project-info .title{ margin-bottom: 5px; }
+	
+}
+
+/* Screens Resolution : 359px
+-------------------------------------------------------------------------- */
+@media only screen and (max-width: 359px) {
+	
+	
+}
+
+/* Screens Resolution : 290px
+-------------------------------------------------------------------------- */
+@media only screen and (max-width: 290px) {
+	
+	/* LOGO */
+	
+	
+}

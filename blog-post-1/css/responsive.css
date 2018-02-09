@@ -1,0 +1,131 @@
+
+
+/* Screens Resolution : 992px
+-------------------------------------------------------------------------- */
+@media only screen and (max-width: 1200px) {
+
+}
+
+/* Screens Resolution : 992px
+-------------------------------------------------------------------------- */
+@media only screen and (max-width: 992px) {
+	
+	/* ---------------------------------
+	1. PRIMARY STYLES
+	--------------------------------- */
+
+	h1{ font-size: 4em; }
+	h2{ font-size: 3em; }
+	h3{ font-size: 2em; }
+	
+	
+	/* ---------------------------------
+	5. CONTACT AREA
+	--------------------------------- */
+
+	.contact-area{ width: 750px; }
+	
+}
+
+
+/* Screens Resolution : 767px
+-------------------------------------------------------------------------- */
+@media only screen and (max-width: 769px) {
+	
+	/* ---------------------------------
+	1. PRIMARY STYLES
+	--------------------------------- */
+
+	p{ line-height: 1.4; }
+
+	h1{ font-size: 3em; }
+	h2{ font-size: 2.5em; }
+	h3{ font-size: 1.8em; }
+	h4{ font-size: 1.5em; }
+	h5{ font-size: 1.2em; }
+
+	
+	/* ---------------------------------
+	2. COMMON SYLES
+	--------------------------------- */
+
+	.section{ margin-top: 100px; }
+	
+	
+	/* ---------------------------------
+	3. MENU STYLING
+	--------------------------------- */
+	
+	header{ padding: 0 15px; }
+	
+	.main-menu ul.nav-menu { padding: 150px 100px; width: 100%; }
+	
+	.main-menu ul.nav-menu> li{ font-size: 1em; width: 100%; }
+	
+	.main-menu ul.nav-menu> li> a:after{ display: none; }
+	
+	
+	/* DROPDOWN */
+
+	.drop-down-menu{ position: static; width: 100%; }
+	
+	.main-menu ul.nav-menu li.drop-down .nv-icn{ margin-left: 5px; }
+	
+	.main-menu ul.nav-menu> li > .drop-down-menu.d-open{ padding: 10px; }
+
+	.drop-down-menu:after{ display: none; }
+	
+	
+	
+	/* ---------------------------------
+	7. INSTRAGRAM AREA
+	--------------------------------- */
+
+	.instagram-area .instagram-image{ width: 25%; }
+
+
+	
+	/* ---------------------------------
+	6. FOOTER STYLING
+	--------------------------------- */
+
+	/* ICONS AREA */
+
+	.icons-area{ margin-left: 0px; }
+
+
+	/* LANGUAGE AREA*/
+
+	.language{ text-align: left; }
+
+	
+	/* COPYRIGHT AREA */
+
+	.copyright{ text-align: left; }
+
+
+}
+
+/* Screens Resolution : 479px
+-------------------------------------------------------------------------- */
+@media only screen and (max-width: 479px) {
+
+	/* ---------------------------------
+	1. PRIMARY STYLES
+	--------------------------------- */
+
+	body{ font-size: 12px;  }
+
+}
+
+/* Screens Resolution : 359px
+-------------------------------------------------------------------------- */
+@media only screen and (max-width: 359px) {
+	
+}
+
+/* Screens Resolution : 290px
+-------------------------------------------------------------------------- */
+@media only screen and (max-width: 290px) {
+	
+}

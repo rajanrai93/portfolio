@@ -1,0 +1,547 @@
+
+/*
+====================================================
+
+* 	[Master Stylesheet]
+	
+	Theme Name :  NGEN
+	Version    :  1.1
+	Author     :  Roman Ahmed
+	Author URI :  https://themeforest.net/user/desroman
+	
+====================================================
+
+	TOC:
+	=======
+
+	1. PRIMARY STYLES
+		PAGE LOADER
+	2. PAGE CONTENT ON VISIBLE ANIMATIONS
+	3. MENU STYLING
+		MAIN MENU
+		SLIDE PAGE ON MENU VISIBLE
+		TOGGLE CAKE ICON
+	4. BLOG STYLING
+	5. BLOG POST STYLING
+		TAGS
+		SHARE AREA
+		RECENT POSTS
+		COMMENT
+		LEAVE REPLY
+	6. RIGHT SIDEBAR STYLING
+		ABOUT AUTHOR
+	7. INSTRAGRAM AREA
+	8. FOOTER STYLING
+		LANGUAGE AREA
+		NEWSLETTER AREA
+		ICONS AREA
+	
+===================================================== */
+
+/* ---------------------------------
+1. PRIMARY STYLES
+--------------------------------- */
+
+html { font-size: 100%; overflow: visible; overflow-x: hidden; }
+
+body{ margin: 0; font-size: 16px; font-family: 'Saira', sans-serif; word-wrap: break-word; color: #222; }
+
+h1, h2, h3, h4, h5, h6, p, a, ul, span, li, img{ margin: 0; padding: 0; }
+
+h1,h2,h3,h4,h5,h6,ul,a{ font-family: 'Khand', sans-serif; font-weight: 400; letter-spacing: 3px; text-transform: uppercase; }
+
+h1,h2,h3,h4,h5,h6{ line-height: 1.3; }
+
+p{ line-height: 1.6; font-weight: 400; color: #333; }
+
+h1{ font-size: 5.5em; line-height: 1; letter-spacing: 8px; }
+h2{ font-size: 3em; line-height: 1.1; letter-spacing: 5px; }
+h3{ font-size: 2em; }
+h4{ font-size: 1.5em; }
+h5{ font-size: 1.1em; }
+h6{ font-size: .9em; color: #000; }
+
+a{ display: inline-block; text-decoration: none; color: inherit; }
+
+a:focus, a:active, a:hover { text-decoration: none; }
+
+b{ font-weight: 700; }
+
+img{ width: 100%; }
+
+li{ list-style: none; }
+
+
+/* PAGE LOADER */
+	
+.css-loader{ position: fixed; top: 0; bottom: 0; left: 0; right: 0; background: #232323; color: #fff; z-index: 99999; 
+	text-align: center; overflow: hidden; }
+
+.bg{ will-change: transform; position: absolute; top: 0; left: 0; height: 100%; right: 0; opacity: 0; background: #000; z-index: 1; 
+	animation: loader-bg-anim 2s 1s forwards cubic-bezier(.77, .2, .175, 1); }
+	
+@keyframes loader-bg-anim{
+	0%	{ opacity: 1; transform: skew(4deg) translateX(-100%); }
+	100%{ opacity: 1; transform: skew(0deg) translateX(100%); }
+}
+
+.loader-writings{ will-change: transform; opacity: 0; animation: load-writings-anim 2s 2s forwards; }
+
+@keyframes load-writings-anim{
+	0%	{ opacity: 0; }
+	100%{ opacity: 1; }
+}
+
+.css-loader span{ will-change: transform; font-size: 1.2em; animation: font-blur 5s infinite; margin: 0 4px; line-height: 100vh; }
+
+.css-loader span:nth-child(1){ animation-delay: 0s; }
+.css-loader span:nth-child(2){ animation-delay: .4s; }
+.css-loader span:nth-child(3){ animation-delay: .8s; }
+.css-loader span:nth-child(4){ animation-delay: 1.2s; }
+.css-loader span:nth-child(5){ animation-delay: 1.6s; }
+.css-loader span:nth-child(6){ animation-delay: 2s; }
+.css-loader span:nth-child(7){ animation-delay: 2.4s; }
+
+@keyframes font-blur{
+	0%{ filter: blur(0px); }
+	50%{ filter: blur(3px); }
+	100%{ filter: blur(0px); }
+}
+
+
+.after-load,
+.inverse-after-load{ will-change: transform; animation: 2s forwards cubic-bezier(.77, .2, .175, 1); }
+	
+.after-load{ will-change: transform; animation-name: after-load-anim; }	
+
+@keyframes after-load-anim{
+	0%	{ transform: translateX(0%); }
+	100%{ transform: translateX(100%); }
+}
+
+.inverse-after-load{ will-change: transform; opacity: 1; animation-name: inverse-after-load-anim; }	
+
+@keyframes inverse-after-load-anim{
+	0%	{ transform: translateX(0%); }
+	100%{ transform: translateX(-100%); }
+}
+
+
+/* ANIMATION BEFORE GO TO THE OTHER PAGE */
+
+.fixed-circle{ position: fixed; background: #232323; height: 2000px; width: 2000px; z-index: 100000;
+	border-radius: 1000px; margin-top: -1000px; margin-left: -1000px; transform: scale(0); will-change: transform; 
+	left: 50%; top: 50%; animation: fixed-circle-anim 1.5s forwards ease-out; }
+
+@keyframes fixed-circle-anim{
+	0%	{ opacity: .6; transform: scale(0); }
+	100%{ opacity: 1; transform: scale(1); }
+}
+
+
+
+/* ---------------------------------
+2. COMMON SYLES
+--------------------------------- */
+
+.section{ margin-top: 150px; }
+
+.section .heading{ padding: 0px 10px 30px; position: relative; margin-bottom: 50px; text-align: center; }
+
+.heading .heading-bg{ position: absolute; top: -80%; width: 100%; right: 10px; font-size: 12em; z-index:-1; font-weight: 800; 
+	color: #F3F3F4; }
+
+[data-page-animation]{ transition: all .9s cubic-bezier(0.000, 0.000, 0.443, 1); }
+
+.scroll-smooth { position: fixed; top: 0; left: 0; width: 100%; transition: all .55s cubic-bezier(0.145, 0.513, 0.343, 1); 
+	transform-origin: 0 0; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden; perspective: 2000px; 
+	box-sizing: border-box; }
+	
+.display-table{ display: table; height: 100%; width: 100%; text-align: center; }
+
+.display-table-cell{ display: table-cell; vertical-align: middle; }
+
+.pre-title{ letter-spacing: 15px; }
+
+
+
+/* ---------------------------------
+3. MENU STYLING
+--------------------------------- */
+
+header{ position: fixed; top: 10px; left: 0; right: 0; z-index: 1000; padding: 0 40px; }
+
+
+/* LOGO */
+
+.logo{ height: 40px; float: left; margin: 10px 0; position: relative; z-index: 1000; }
+
+.logo a{ display: block; height: 100%; }
+
+.logo img{ width: auto; height: 100%;  }
+
+
+/* MAIN MENU */
+
+.main-menu{ position: fixed; top: 0; left: -100%; height: 100%; width: 100%; overflow: hidden; background: #000; }
+
+.main-menu ul.nav-menu { padding: 150px 0; width: 600px; margin: 0 auto; }
+
+.main-menu ul.nav-menu> li{ font-size: 1.8em; margin: 10px 0; width: 50%; color: #fff; }
+
+.main-menu ul.nav-menu> li> .icons>li{ font-size: .5em; display: inline-block; margin: 15px 0px; position: relative; }
+
+.main-menu ul.nav-menu> li > .icons> li > a{ padding: 0 3px; position: relative; }
+
+.main-menu ul.nav-menu> li> a:after{ content: ''; position: absolute; top: 50%; margin-top: -1px; height: 2px; 
+	left: 20px; right: 100%; transition: all .3s; background: #aaa; }
+
+.main-menu ul.nav-menu> li:hover> a:after{ right: 20px; }
+
+
+/* DROPDOWN */
+
+.main-menu ul.nav-menu li.drop-down .nv-icn{ margin-left: 10px; transition: all .3s .1s ease-in-out; }
+
+.nv-icn.rotate{ transform: rotate(90deg); }
+
+.drop-down-menu{ position: absolute; top: 0; left: 300px; width: 300px; transform-origin: left top; z-index: 1; opacity: 0; 
+	overflow: hidden; max-height: 0; font-size: .9em; 
+	will-change: transform; transition: all .6s .1s cubic-bezier(.57, .1, .175, 1),opacity .3s .4s; }
+
+.drop-down-menu li{ padding: 5px 0; }
+
+.main-menu ul.nav-menu> li > .drop-down-menu.d-open{ max-height: 250px; opacity: 1; }
+
+.main-menu ul.nav-menu> li > .drop-down-menu.d-open:after{ transform: translateY(100%); }
+
+.drop-down-menu:after{ content:''; position: absolute; top: 0; left: 0;  width: 100%; height: 100%; z-index: 1; 
+	transition: all 1s .3s ease-in-out; background: #fff; }
+
+
+/* TOGGLE CAKE ICON */
+
+.nav-icon{ border-radius:0; border: 0; margin: 21.5px 0; height: 18px; width: 30px; position: relative; float: right;
+	background: none; cursor: pointer; z-index: 10000; transition: all .2s ease-in-out; margin-right: 0px; }
+
+.nav-icon:after{ content:''; position: absolute; top: -16px; bottom: -18px; right: -12px; left: -12px; z-index: -1; 
+	border-radius: 100px; transition: all .1s cubic-bezier(.77, .2, .325, 1); border: 0px solid #ccc; }
+
+.nav-icon:hover:after{ transform: scale(1.1); }
+
+.nav-icon span{ display: block; position: absolute; height: 2px; width: 100%; left: 0; 
+	transition: all .3s cubic-bezier(.77, .2, .325, 1);
+	box-shadow: 0px 0px 10px -1px rgba(0,0,0,1); background: #aaa; }
+	
+.nav-icon span:nth-child(1){ top: 0; width: 80%; }
+
+.nav-icon span:nth-child(2){ top: 8px; }
+
+.nav-icon span:nth-child(3){ top: 16px; margin-left: 30%; width: 70%; }
+
+.nav-icon:hover span{ width: 100%; margin-left: 0; }
+
+.nav-icon.close-btn{ transform: rotate(-90deg); }
+
+.nav-icon.close-btn span{ width: 100%; margin-left: 0; }
+
+.nav-icon.close-btn span:nth-child(2){ opacity: 0; }
+	
+.nav-icon.close-btn span:nth-child(1){ transform: translateY(8px) rotate(45deg); }
+
+.nav-icon.close-btn span:nth-child(3){ transform: translateY(-8px) rotate(-45deg); }
+
+
+/* MENU ANIMATIONS */
+
+.inverse-menu-to-right,
+.menu-to-right{ animation-duration: 1.5s; animation-timing-function: cubic-bezier(.87, .3, .175, 1); 
+	animation-fill-mode: forwards; opacity: 1; transform-origin: left top; will-change: transform; }
+	
+.menu-to-right{ will-change: transform; animation-name: menu-to-right-anim; }
+
+@keyframes menu-to-right-anim{
+	0%	{ opacity: 1; transform: skew(6deg) translate3d(0, 0, 0); }
+	100%{ opacity: 1; transform: skew(0deg) translate3d(100%, 0, 0); }	
+}
+
+.inverse-menu-to-right{ will-change: transform;  animation-name: inverse-menu-to-right-anim; }
+
+@keyframes inverse-menu-to-right-anim{
+	0%	{ opacity: 1; transform: skew(-6deg) translate3d(100%, 0, 0);  }
+	100%{ opacity: 1; transform: skew(0deg) translate3d(0, 0, 0); }	
+}
+
+
+/* MENU ELEMENTS ANIMATIONS ON VISIBLE*/
+
+.menuelem-to-top,
+.menuelem-to-right{ will-change: transform; animation-duration: .8s; animation-timing-function: ease-out; 
+	animation-fill-mode: forwards; opacity: 0; }
+	
+.menuelem-to-right{ will-change: transform; animation-name: menuelem-to-right-anim; }
+
+@keyframes menuelem-to-right-anim{
+	0%	{ opacity: 0; transform: translate3d(-100px, 0, 0); }
+	100%{ opacity: 1; transform: translate3d(0, 0, 0); }	
+}
+
+.menuelem-to-top{ will-change: transform; animation-name: menuelem-to-top-anim; }
+
+@keyframes menuelem-to-top-anim{
+	0%	{ opacity: 0; transform-origin: top left;  transform: rotateY(20deg) scale3d(1.02, 1.1, 1) translate3d(0, -20px, 0); }
+	100%{ opacity: 1; transform-origin: top left;  transform: rotateY(0deg) scale3d(1, 1, 1) translate3d(0, 0, 0); }	
+}
+
+
+/* SLIDE PAGE ON MENU VISIBLE */
+
+.main-menu,
+[data-slide-page-for-menu]{ will-change: transform; transition: all 1.5s cubic-bezier(.87, .3, .175, 1); }
+
+.page-slide-to-right{ transform: translateX(15%); }
+
+
+
+/* ---------------------------------
+4. BLOG STYLING
+--------------------------------- */
+
+.blog-area .page-heading{ margin: 150px 0 100px; }
+
+.blog-area .page-heading .post-info > li{ display: inline-block; margin-right: 15px; margin-top: 10px; }
+
+.blog-area .page-heading .post-info > li > span:last-child{ margin-left: 5px; color: #999; }
+
+.blog-area .slider{ cursor: w-resize; overflow: hidden; margin-bottom: 50px; border: 1px solid #ddd; }
+
+.blog-area .slider img{ padding: 20px;height: 100%; width: 100%; }
+
+.blog-area .slider .swiper-control{ width: auto; height: 50px; border-radius: 1px; transition: all .3s ease-in-out; 
+	background: #fff; color: #444; }
+
+.blog-area .slider .swiper-button-next{ right: 0px; transform: translateX(100px); }
+
+.blog-area .slider .swiper-button-prev{ left: 0px; transform: translateX(-100px); }
+
+.blog-area .slider .swiper-control i{ font-size: 1.7em; line-height: 50px; text-align: left; padding: 0 5px; }
+
+.blog-area .slider:hover .swiper-control{ transform: translateX(0px); }
+
+
+/* ---------------------------------
+5. BLOG POST STYLING
+--------------------------------- */
+
+.blog-post .first-letter{ font-size: 60px; line-height: 62px; margin: -2px 10px 0 -2px; font-weight: 700;
+    display: inline-block; float: left; text-transform: uppercase; color: #64b4a6; }
+
+.blog-post .desc{ margin-bottom: 20px; }
+
+.blog-post .post-image{ margin: 20px 0 40px; }
+
+.blog-post .quoto-area{ margin: 0px 0 25px; }
+
+.blog-post .quoto i{ font-size: 1.6em; display: inline-block; color: #64b4a6; }
+	
+.blog-post .quoto i:first-child{ transform: rotate(180deg); margin-right: 10px;  }
+
+.blog-post .quoto i:last-child{ margin-left: 20px; position: absolute; }
+
+.blog-post .quoto-name{ position: relative; padding-left: 30px; margin-top: 20px; }
+
+.blog-post .quoto-name:after{ content:''; position:absolute; top: 50%; height: 1px; width: 20px; left: 0; background: #64b4a6; }
+
+
+/* TAGS */
+
+.blog-post .tags{ margin: 30px 0 50px; }
+
+.blog-post .tags a{ padding: 7px 15px; margin: 5px 0; margin-right: 5px; font-size: .9em; transition: all .3s; 
+	background: #E0F0ED; color: #111; }
+	
+.blog-post .tags a:hover{ background: #aaa; color: #fff; }
+
+
+/* SHARE AREA */
+
+.blog-post .share-area{ padding: 20px 0; border-top: 1px solid #eee;  border-bottom: 1px solid #eee; overflow: hidden; }
+
+.blog-post .share-area .favourite-btn{ float: left; }
+
+.blog-post .share-area .favourite-btn i{ margin-right: 7px; }
+
+.blog-post .share-area .icons{ float: right; }
+
+.blog-post .share-area .icons > li{ display: inline-block; }
+
+.blog-post .share-area .icons > li > a{ padding-right: 10px; font-size: .8em; color: #777; }
+
+
+/* RECENT POSTS */
+
+.blog-post .recent-posts-area{ margin: 50px 0; border-bottom: 1px solid #eee;  padding-bottom: 50px; }
+
+.blog-post .recent-post{ margin-top: 40px; }
+
+.blog-post .recent-post .title{ margin-top: 20px; }
+
+.blog-post .recent-post .date{ margin-top: 5px; color: #777; }
+
+
+/* COMMENT */
+
+.blog-post .comments-area >.title{ margin: 0px 0 40px; }
+
+.blog-post .comment{ margin-top: 30px; border-bottom: 1px solid #eee; padding-bottom: 30px; }
+
+.blog-post .comment .profile-image{ height: 90px; width: 90px; border-radius: 100px; overflow: hidden; float: left; 
+	margin-top: 10px; }
+
+.blog-post .comment .right-area{ margin-left: 120px; }
+
+.blog-post .comment .right-area .date{ margin: 5px 0 15px; color: #777; }
+
+.blog-post .comment .right-area .reply-btn{ padding: 4px 25px; border-radius: 100px; background: #87c5bb; color: #fff; }
+
+.blog-post .comment .right-area .reply-btn i{ margin-right: 5px; }
+
+.blog-post .comment .right-area .reply-btn:hover{ background: #000; color: #fff; }
+
+
+/* LEAVE REPLY */
+
+.blog-post .leave-reply-area{ margin: 50px 0; }
+
+.blog-post .leave-reply{ margin-top: 50px; }
+
+.blog-post .leave-reply .form-control{ height: 50px; line-height: 50px; border-radius: 0px; box-shadow: none; 
+	border-color: #ddd; }
+
+.blog-post .leave-reply .form-control:focus{ border-color: #64b4a6; }
+	
+.blog-post .leave-reply textarea.form-control{ height: auto; line-height: inherit; max-width: 100%; max-height: 150px; }
+
+.blog-post .leave-reply .btn-submit{ background: none; border: 0; padding: 15px 30px; font-size: 1.2em;
+	letter-spacing: inherit; transition: all .3s ease-in-out; background: #64b4a6; color: #fff; }
+
+.blog-post .leave-reply .btn-submit:hover{ background: #444; color: #fff; }
+
+
+
+/* ---------------------------------
+6. RIGHT SIDEBAR STYLING
+--------------------------------- */
+
+.right-sidebar .sidebar-section{ text-align: center; border: 1px solid #ddd; padding: 35px 30px; 
+	position: relative; margin-bottom: 50px; }
+
+.right-sidebar .sidebar-section .title{ position: absolute; top: -25px; line-height: 50px; left: 15%; right: 15%;
+	text-align: center; background: #fff; }
+
+ 
+/* ABOUT AUTHOR */
+
+.right-sidebar .about-author { min-height: 440px; }
+
+.right-sidebar .about-author .image-wrapper{ height: 120px; width: 120px; border-radius: 150px; overflow: hidden; 
+	margin: 28px auto 0; }
+
+.right-sidebar .about-author .name{ margin: 25px 0 15px; }
+	
+.right-sidebar .about-author .icons li{ display: inline-block; margin-top: 10px; }
+
+.right-sidebar .about-author .icons li>a{ padding: 10px 8px; font-size: .8em; color: #555; }
+
+
+.right-sidebar .recent-posts{ text-align: left; }
+
+.right-sidebar .recent-posts a{ margin-bottom: 8px; padding-bottom: 8px; margin-right:10px; border-bottom: 1px dotted #ddd; }
+
+	
+.right-sidebar .tags a{ margin: 5px 3px; padding: 8px 15px; background: #ddd; }
+
+.right-sidebar .category a{ border-bottom: 1px solid  #ccc; padding: 2px; margin: 5px 10px; }
+
+
+/* ---------------------------------
+7. INSTRAGRAM AREA
+--------------------------------- */
+
+.instagram-area{ overflow: hidden; margin-top: 40px; position: relative; }
+
+.instagram-area .instagram-image{ float: left; width: 12.5%; position: relative; }
+
+.instagram-area .instagram-image:after{ content: ''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; 
+	transition: all .3s; z-index: 1; background: rgba(0,0,0,.2); }
+
+.instagram-area  .follow-btn{ position: absolute; top: 50%; height: 50px; line-height: 50px; width: 170px; text-align: center;
+	margin-top: -30px; left: 50%; margin-left: -85px; border-radius: 3px; transition: all .3s; 
+	z-index: 2;  background: rgba(0,0,0,.8); color: #fff; }
+
+.instagram-area  .follow-btn i{ margin-right: 15px; }
+
+.instagram-area  .follow-btn:hover{ background-color: rgba(0,0,0,.9); }
+
+
+/* ---------------------------------
+8. FOOTER STYLING
+--------------------------------- */
+
+footer{ padding: 100px 0 50px; }
+
+.footer-section { margin-bottom: 50px; }
+
+.footer-section .title{ margin-bottom: 20px; }
+
+
+/* NEWSLETTER AREA */	
+
+.newsletter .email-input{ border: 0; outline: 0; background: none; box-shadow: none; border-radius: 0; padding: 0;
+	width: 100%; display: block; height: 30px; line-height: 30px; padding-left: 5px; padding-right: 60px;
+	border-bottom: 1px solid #888; }
+	
+.newsletter .input-group{ position: relative; width: 100%; margin: auto; }
+
+.newsletter .input-group .enter-btn{ border: 0; outline: 0; background: none; box-shadow: none; border-radius: 0; 
+	position: absolute; top: 0; right: 0; z-index: 10; width: 50px; height: 30px; line-height: 30px; padding: 0; 
+	letter-spacing: inherit; transition: all .2s; }
+
+.newsletter .enter-btn:hover{ transform: translateY(-3px); }
+
+.newsletter .contact span{ margin-top: 20px; display: block; }
+
+.newsletter .contact-btn{ padding: 10px 25px; margin-top: 20px; transition: all .2s; }
+
+.form-control::-webkit-input-placeholder { color: #888; letter-spacing: 2px; }
+.form-control::-moz-placeholder { color: #888; letter-spacing: 2px; }
+.form-control:-ms-input-placeholder { color: #888; letter-spacing: 2px; }
+.form-control:-moz-placeholder { color: #888; letter-spacing: 2px; }
+
+
+/* ICONS AREA */
+
+.icons-area{ margin-left: 30px; }
+
+.icons-area .icons> li{ display: inline-block; }
+
+.icons-area .icons> li > a{ padding: 5px 0; margin-right: 10px; font-size: .85em; color: #555; }
+
+
+/* LANGUAGE AREA*/
+
+.language{ text-align: right; }
+
+.language a{ position: relative; padding-right: 10px; margin-right: 10px; }
+
+.language a:after{ content:''; position: absolute; top: 0; bottom: 0; right: 0; width: 1px; transform: rotate(15deg); 
+	background-color: #aaa; }
+
+.language a:last-child:after{ width: 0; }
+
+
+/* COPYRIGHT AREA */
+
+.copyright{ text-align: center; }
+
+
