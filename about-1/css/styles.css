@@ -308,12 +308,12 @@ header{ position: fixed; top: 10px; left: 0; right: 0; z-index: 1000; padding: 0
 4. SLIDER AREA
 --------------------------------- */
 
-.slider-area{ position: relative; height: 500px; width: 100%; box-shadow: 2px 3px 20px 8px rgba(0,0,0,.2);
+.slider-area{ position: relative; height: 500px; width: 100%; border-radius: 85px; margin-top: 10px; 
 	display: table; overflow: hidden; text-align: center; 
-	background-size: cover; background-image: url(../../images/slider-3-1600x900.jpg);}
+	background-size: cover; background-image: url(../../images/slider-5-1600x900.jpg);}
 
 .slider-area:after{ content:''; position: absolute; top: 0; bottom: 0; left: 0; right:0;
-	background: #232323; opacity: .4; }
+	background: #232323; opacity: .15; }
 
 .heading{ display: table-cell; vertical-align: middle; position: relative; z-index: 5; }	 
 
